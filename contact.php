@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Spotify+</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <style>
 /* Add your CSS styles here */
@@ -225,7 +226,7 @@ footer {
         </div>
         <nav>
             <ul>
-                <li><a href="index10.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                 <li><a href="about.php">About</a></li>
                 <li><a href="privacy.php">Privacy Policy</a></li>
                 <li class="divider">|</li>
@@ -273,7 +274,7 @@ footer {
             </div>
             <div class="footer-right">
                 <ul class="footer-links">
-                    <li><a href="index10.php">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="about.php">About</a></li>
                     <li><a href="privacy.php">Privacy Policy</a></li>
                     
@@ -281,7 +282,7 @@ footer {
                 <div class="social-icons">
                     <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                    
                 </div>
             </div>
         </div>
