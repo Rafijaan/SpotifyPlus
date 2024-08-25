@@ -1,0 +1,245 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #333;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #222;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  color:#ffffff;
+  border: 1px solid #adaaaa44;
+  border-radius: 3px;
+  background-color: #444;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00ff9d;
+  color: #ffffff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.oauth-options {
+  text-align: center;
+}
+
+.oauth-options p {
+  margin-bottom: 10px;
+}
+
+.oauth-options button {
+  margin-bottom: 10px;
+}
+
+.spotify-icon {
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.spotify-icon img {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.signin-link {
+  text-align: center;
+  margin-top: 20px;
+  
+}
+.signin-link a {
+    color: #007bff; /* Changed sign-up link color to blue */
+    text-decoration: none;
+  }
+  
+  .signin-link a:hover {
+    text-decoration: underline;
+  }
+
+/* Updated styles for form inputs */
+#username,
+#email,
+#password {
+  width: calc(100% - 22px);
+}
+
+#password {
+  margin-top: 15px;
+}
+
+/* Password strength indicator */
+.password-strength {
+  color: #f7f7f7;
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+/* Password strength classes */
+.weak {
+  color: red;
+}
+
+.medium {
+  color: orange;
+}
+
+.strong {
+  color: green;
+}
+
+.logo-container {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo-container img {
+  margin-right: 10px;
+  width:3%;
+}
+
+.logo-container h3 {
+  margin: 0;
+}
+</style>
+</head>
+<body>
+
+<div class="logo-container">
+  <img src="C:\Users\abid\Desktop\UML\Apple Music Icon34.png" alt="Spotify Icon"text="Spotify+">
+  <h3>Spotify+</h3>
+  </div>
+
+  <div class="spotify-icon">
+  <h3> Listen Beautiful naats</h3>
+</div>
+
+<div class="container">
+  <h2>Sign Up</h2>
+  <form id="signup-form">
+    <div class="input-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" name="username" required>
+    </div>
+    <div class="input-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="input-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+      <div class="password-strength" id="password-strength"></div>
+    </div>
+    <button type="submit">Sign Up</button>
+  </form>
+  <div class="oauth-options">
+    <p>Sign up with</p>
+    <button id="google-signup">Google</button>
+    <br>
+    <button id="facebook-signup">Facebook</button>
+  </div>
+  <div class="signin-link">
+    <p>Already have an account? <a href="C:\Users\abid\Desktop\spotify+\login.html">Sign in</a></p>
+  </div>
+</div>
+
+<script>
+// Function to handle form submission
+document.getElementById("signup-form").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+  // You can add your form submission logic here
+  alert("Form submitted!"); // For demonstration
+});
+
+// Function to handle Google sign-up
+document.getElementById("google-signup").addEventListener("click", function() {
+  // You can implement Google sign-up functionality using Google API here
+  alert("Google sign-up clicked!"); // For demonstration
+});
+
+// Function to handle Facebook sign-up
+document.getElementById("facebook-signup").addEventListener("click", function() {
+  // You can implement Facebook sign-up functionality using Facebook API here
+  alert("Facebook sign-up clicked!"); // For demonstration
+});
+
+// Password strength checker
+document.getElementById("password").addEventListener("input", function() {
+  var password = this.value;
+  var strengthText = document.getElementById("password-strength");
+  
+  var strength = 0;
+  if (password.match(/[a-z]+/)) {
+    strength += 1;
+  }
+  if (password.match(/[A-Z]+/)) {
+    strength += 1;
+  }
+  if (password.match(/[0-9]+/)) {
+    strength += 1;
+  }
+  if (password.match(/[!@#$%^&*(),.?":{}|<>]+/)) {
+    strength += 1;
+  }
+  
+  if (password.length >= 8 && strength >= 3) {
+    strengthText.textContent = "Strong";
+    strengthText.className = "strong";
+  } else if (password.length >= 6 && strength >= 2) {
+    strengthText.textContent = "Medium";
+    strengthText.className = "medium";
+  } else {
+    strengthText.textContent = "Weak";
+    strengthText.className = "weak";
+  }
+});
+</script>
+
+</body>
+</html>

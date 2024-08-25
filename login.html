@@ -1,0 +1,604 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #666;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    
+    <p id="error-message"></p>
+    
+    <button class="google-btn" onclick="loginWithGoogle()">Login with Google</button>
+  </div>
+
+  <script>
+function loginWithGoogle() {
+    // Code to handle Google login goes here
+    alert("Logging in with Google...");
+  }
+  
+  
+  
+  function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var errorMessage = document.getElementById('error-message');
+  
+    // Reset error message
+    errorMessage.innerText = '';
+  
+    // Simple validation
+    if (username.trim() === '' || password.trim() === '') {
+      errorMessage.innerText = 'Username and password are required';
+      return false;
+    }
+  
+    // Validation for username
+    if (username.length < 5) {
+      errorMessage.innerText = 'Username must be at least 5 characters long';
+      return false;
+    }
+  
+    // Validation for password
+    if (password.length < 8) {
+      errorMessage.innerText = 'Password must be at least 8 characters long';
+      return false;
+    }
+  
+    // Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit
+    var passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      errorMessage.innerText = 'Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit';
+      return false;
+    }
+  
+    // Additional validation logic can be added here
+  
+    return true;
+  }
+  </script>
+</body>
+</html>
+---->
+<!----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Changed background color to blackish-gray */
+    color: #fff; /* Changed text color to white */
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #222; /* Changed container background color to darker shade of black */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #fff; /* Changed heading color to white */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc; /* Changed label color to light gray */
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #666; /* Changed border color to darker gray */
+    border-radius: 3px;
+    background-color: #444; /* Changed input background color to dark gray */
+    color: #fff; /* Changed input text color to white */
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .signup {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .signup a {
+    color: #007bff; /* Changed sign-up link color to blue */
+    text-decoration: none;
+  }
+  
+  .signup a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    
+    <p id="error-message"></p>
+    
+    <button class="google-btn" onclick="loginWithGoogle()">Login with Google</button>
+
+    <div class="signup">
+      <p>Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+  </div>
+
+  <script>
+function loginWithGoogle() {
+    // Code to handle Google login goes here
+    alert("Logging in with Google...");
+  }
+  
+  
+  
+  function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var errorMessage = document.getElementById('error-message');
+  
+    // Reset error message
+    errorMessage.innerText = '';
+  
+    // Simple validation
+    if (username.trim() === '' || password.trim() === '') {
+      errorMessage.innerText = 'Username and password are required';
+      return false;
+    }
+  
+    // Validation for username
+    if (username.length < 5) {
+      errorMessage.innerText = 'Username must be at least 5 characters long';
+      return false;
+    }
+  
+    // Validation for password
+    if (password.length < 8) {
+      errorMessage.innerText = 'Password must be at least 8 characters long';
+      return false;
+    }
+  
+    // Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit
+    var passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      errorMessage.innerText = 'Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit';
+      return false;
+    }
+  
+    // Additional validation logic can be added here
+  
+    return true;
+  }
+  </script>
+</body>
+</html>
+---->
+<!---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Changed background color to blackish-gray */
+    color: #fff; /* Changed text color to white */
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #222; /* Changed container background color to darker shade of black */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #fff; /* Changed heading color to white */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc; /* Changed label color to light gray */
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width: calc(100% - 20px); /* Adjusted width to compensate for padding */
+    padding: 10px;
+    border: 1px solid #666; /* Changed border color to darker gray */
+    border-radius: 3px;
+    background-color: #444; /* Changed input background color to dark gray */
+    color: #fff; /* Changed input text color to white */
+    box-sizing: border-box; /* Ensures padding is included in width calculation */
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .signup {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .signup a {
+    color: #007bff; /* Changed sign-up link color to blue */
+    text-decoration: none;
+  }
+  
+  .signup a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    
+    <p id="error-message"></p>
+    
+    <button class="google-btn" onclick="loginWithGoogle()">Login with Google</button>
+
+    <div class="signup">
+      <p>Don't have an account? <a href="#">Sign up</a></p>
+    </div>
+  </div>
+
+  <script>
+function loginWithGoogle() {
+    // Code to handle Google login goes here
+    alert("Logging in with Google...");
+  }
+  
+  
+  
+  function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var errorMessage = document.getElementById('error-message');
+  
+    // Reset error message
+    errorMessage.innerText = '';
+  
+    // Simple validation
+    if (username.trim() === '' || password.trim() === '') {
+      errorMessage.innerText = 'Username and password are required';
+      return false;
+    }
+  
+    // Validation for username
+    if (username.length < 5) {
+      errorMessage.innerText = 'Username must be at least 5 characters long';
+      return false;
+    }
+  
+    // Validation for password
+    if (password.length < 8) {
+      errorMessage.innerText = 'Password must be at least 8 characters long';
+      return false;
+    }
+  
+    // Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit
+    var passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      errorMessage.innerText = 'Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit';
+      return false;
+    }
+  
+    // Additional validation logic can be added here
+  
+    return true;
+  }
+  </script>
+</body>
+</html>_--->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #333; /* Changed background color to blackish-gray */
+    color: #ffffff; /* Changed text color to white */
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #222; /* Changed container background color to darker shade of black */
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2 {
+    text-align: center;
+    color: #fff; /* Changed heading color to white */
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #ccc; /* Changed label color to light gray */
+    width: 100px; /* Fixed width for labels */
+  }
+  
+  input[type="text"],
+  input[type="password"],
+  button {
+    width: calc(100% - 20px); /* Adjusted width to compensate for padding */
+    padding: 10px;
+    border: 1px solid #666; /* Changed border color to darker gray */
+    border-radius: 3px;
+    background-color: #444; /* Changed input background color to dark gray */
+    color: #fff; /* Changed input text color to white */
+    box-sizing: border-box; /* Ensures padding is included in width calculation */
+    margin-bottom: 10px; /* Added margin-bottom for spacing between elements */
+  }
+  
+  button {
+    background-color: #00ff9d;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
+  #error-message {
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .signup {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .signup a {
+    color: #007bff; /* Changed sign-up link color to blue */
+    text-decoration: none;
+  }
+  
+  .signup a:hover {
+    text-decoration: underline;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+    
+    <p id="error-message"></p>
+    
+    <button class="google-btn" onclick="loginWithGoogle()">Login with Google</button>
+
+    <div class="signup">
+      <p>Don't have an account? <a href="C:\Users\abid\Desktop\spotify+\signup.html">Sign up</a></p>
+    </div>
+  </div>
+
+  <script>
+function loginWithGoogle() {
+    // Code to handle Google login goes here
+    alert("Logging in with Google...");
+  }
+  
+  
+  
+  function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var errorMessage = document.getElementById('error-message');
+  
+    // Reset error message
+    errorMessage.innerText = '';
+  
+    // Simple validation
+    if (username.trim() === '' || password.trim() === '') {
+      errorMessage.innerText = 'Username and password are required';
+      return false;
+    }
+  
+    // Validation for username
+    if (username.length < 5) {
+      errorMessage.innerText = 'Username must be at least 5 characters long';
+      return false;
+    }
+  
+    // Validation for password
+    if (password.length < 8) {
+      errorMessage.innerText = 'Password must be at least 8 characters long';
+      return false;
+    }
+  
+    // Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit
+    var passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+    if (!passwordRegex.test(password)) {
+      errorMessage.innerText = 'Password must contain at least one special character, one uppercase letter, one lowercase letter, and one numeric digit';
+      return false;
+    }
+  
+    // Additional validation logic can be added here
+  
+    return true;
+  }
+  </script>
+</body>
+</html>
